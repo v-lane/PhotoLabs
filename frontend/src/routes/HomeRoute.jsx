@@ -6,11 +6,8 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
   const [isLiked, setIsLiked] = useState({})
-  const isLikedValues = Object.values(isLiked)
-  const isFavPhotoExist = (
-    (Object.values(isLiked).some(element => element === true) && true) ||
-    (!Object.values(isLiked).some(element => element === true) && false)
-  )
+  const isFavPhotoExist = (Object.values(isLiked).some(element => element === true))
+  
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} isFavPhotoExist={isFavPhotoExist}/>
