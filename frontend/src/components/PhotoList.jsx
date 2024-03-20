@@ -66,7 +66,7 @@ const photos = sampleDataForPhotoList.map(photo => {
   country={ photo.location.country }
   name={ photo.user.name }
   profilePic={ photo.user.profile }
-  photoPic={ photo.urls.regular }
+  photoPic={ photo.urls.full }
   />;
 });
 

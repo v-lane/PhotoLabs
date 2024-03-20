@@ -8,7 +8,7 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
   return (
-    <article className="photo-list__item">
+    <li className="photo-list__item">
       <PhotoFavButton />
       <img className="photo-list__image" src={props.photoPic} />
       <section className="photo-list__user-details">
@@ -18,7 +18,7 @@ const PhotoListItem = (props) => {
           <h2 className="photo-list__user-location">{props.city}, {props.country}</h2>
         </div>
       </section>
-    </article>
+    </li>
   );
 };
 
