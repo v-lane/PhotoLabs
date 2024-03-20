@@ -6,7 +6,7 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = (props) => {
   return (
     <li className="photo-list__item">
-      <PhotoFavButton />
+      <PhotoFavButton photoId={props.photoid} isLiked={props.isLiked} setIsLiked={props.setIsLiked}/>
       <img className="photo-list__image" src={props.photoPic} />
       <section className="photo-list__user-details">
         <img className="photo-list__user-profile" src={props.profilePic} />
