@@ -9,11 +9,15 @@ const PhotoListItem = (props) => {
   const { sampleData } = props
 
   return (
-    <article>
-    <img src={sampleData.imageSource}/>
-    <img src={sampleData.profile}/>
-    <h2>{sampleData.username}</h2>
-    <h2>{sampleData.location.city} {props.sampleData.location.country}</h2>
+    <article className="photo-list__item">
+    <img className="photo-list__image" src={sampleData.imageSource}/>
+    <section className="photo-list__user-details">
+    <img className="photo-list__user-profile"src={sampleData.profile}/>
+    <div>
+    <h2 className="photo-list__user-info">{sampleData.username}</h2>
+    <h2 className="photo-list__user-info photo-list__user-location">{sampleData.location.city}, {props.sampleData.location.country}</h2>
+    </div>
+    </section>
     </article>
   )
 };
