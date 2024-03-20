@@ -9,8 +9,15 @@ function PhotoFavButton(props) {
 
   const handleClick = () => {
     setIsLiked(prev => {
-      const newState = { ...prev, [photoId]: true };
-      return newState;
+      const newState = { ...prev };
+      if (!newState[photoId]) {
+        newState[photoId] = true;
+        return newState;
+      }
+      if (newState[photoId] === true) {
+        newState[photoId] = false;
+        return newState;
+      }
     });
   };
 

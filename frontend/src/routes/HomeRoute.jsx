@@ -8,8 +8,8 @@ const HomeRoute = (props) => {
   const [isLiked, setIsLiked] = useState({})
   const isLikedValues = Object.values(isLiked)
   const isFavPhotoExist = (
-    (Object.values(isLiked).some(element => true) && true) ||
-    (!Object.values(isLiked).some(element => true) && false)
+    (Object.values(isLiked).some(element => element === true) && true) ||
+    (!Object.values(isLiked).some(element => element === true) && false)
   )
   return (
     <div className="home-route">
