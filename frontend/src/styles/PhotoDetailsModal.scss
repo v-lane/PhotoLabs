@@ -47,6 +47,7 @@
 .photo-details-modal__photographer-details {
   display: flex;
   font-size: 16px;
+  margin-left: 1em;
 }
 
 .photo-details-modal__header {
@@ -56,6 +57,8 @@
   margin-top: 24px;
   margin-bottom: 24px;
   width: 90%;
+  margin-left: 1em;
+
 }
 
 .photo-details-modal__photographer-location {
@@ -80,4 +83,10 @@
   font-size: 12px;
   margin-left: 8px;
   margin-bottom:0
+}
+
+.photo-details-modal__fav-button {
+  position: relative;
+  top: 10px;
+  right: -16px;
 }

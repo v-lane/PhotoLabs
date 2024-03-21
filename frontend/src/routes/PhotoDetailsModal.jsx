@@ -19,8 +19,10 @@ const PhotoDetailsModal = (props) => {
       <button className="photo-details-modal__close-button" onClick={handleClick}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <section className="photo-details-modal__top-bar">
+      <div className="photo-details-modal__fav-button" >
         <PhotoFavButton photoId={photo.id} isLiked={isLiked[photo.id]} setIsLiked={setIsLiked} />
+      </div>
+      <section className="photo-details-modal__top-bar">
         <img className="photo-details-modal__image" src={photo.urls.regular} />
         </section>
         <section className="photo-details-modal__photographer-details">
