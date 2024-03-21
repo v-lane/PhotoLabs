@@ -10,7 +10,7 @@ const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const modalDisplay = (
     (!isModalVisible) ||
-    (isModalVisible && <PhotoDetailsModal/>)
+    (isModalVisible && <PhotoDetailsModal setIsModalVisible={setIsModalVisible}/>)
   )
 
   return (
