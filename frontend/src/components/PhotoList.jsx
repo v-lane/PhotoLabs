@@ -4,19 +4,20 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
-  const photos = props.photos.map(photo => {
+  const { photos, isLiked, setIsLiked, setIsModalVisible } = props;
+  const photosDetails = photos.map(photo => {
     return <PhotoListItem
       key={photo.id}
       photo={photo}
-      isLiked={props.isLiked[photo.id]}
-      setIsLiked={props.setIsLiked}
-      setIsModalVisible={props.setIsModalVisible}
+      isLiked={isLiked[photo.id]}
+      setIsLiked={setIsLiked}
+      setIsModalVisible={setIsModalVisible}
     />;
   });
 
   return (
     <ul className="photo-list">
-      {photos}
+      {photosDetails}
     </ul>
   );
 };

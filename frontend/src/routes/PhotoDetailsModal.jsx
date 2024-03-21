@@ -7,24 +7,12 @@ import PhotoListItem from 'components/PhotoListItem';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  console.log('in modal, I rendered');
-  // console.log('inModal. photo details', props.isModalVisible.photoId, props.photo);
+  const { photo, isLiked, setIsLiked, isModalVisible, setIsModalVisible } = props;
   const handleClick = () => {
     props.setIsModalVisible(false);
   };
-  const { photo } = props;
 
-  const objToArray = (object) => {
-    const similarPhotosArr = []
-    const keys = Object.keys(object);
-    for (const key of keys) {
-      similarPhotosArr.push(object[key])
-    }
-    return similarPhotosArr
-  }
-  const similarPhotosArr = objToArray(photo.similar_photos)
-  console.log(similarPhotosArr);
-
+  const similarPhotosArr = Object.values(photo.similar_photos)
 
   return (
     <div className="photo-details-modal">
@@ -32,7 +20,7 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <section className="photo-details-modal__top-bar">
-        <PhotoFavButton photoId={photo.id} isLiked={props.isLiked[photo.id]} setIsLiked={props.setIsLiked} />
+        <PhotoFavButton photoId={photo.id} isLiked={isLiked[photo.id]} setIsLiked={setIsLiked} />
         <img className="photo-details-modal__image" src={photo.urls.regular} />
         </section>
         <section className="photo-details-modal__photographer-details">
@@ -44,7 +32,7 @@ const PhotoDetailsModal = (props) => {
       </section>
       <h2 className="photo-details-modal__header"> Similar Photos</h2>
       <section className="photo-details-modal__images">
-        <PhotoList photos={similarPhotosArr} isLiked={props.isLiked} setIsLiked={props.setIsLiked} isModalVisible={props.isModalVisible} setIsModalVisible={props.setIsModalVisible}/>
+        <PhotoList photos={similarPhotosArr} isLiked={isLiked} setIsLiked={setIsLiked} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible}/>
       </section>
     </div >
   );
