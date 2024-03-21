@@ -9,7 +9,6 @@ import topics from 'mocks/topics';
 const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const modalDisplay = (
-    (!isModalVisible) ||
     (isModalVisible && <PhotoDetailsModal setIsModalVisible={setIsModalVisible}/>)
   )
 
