@@ -7,9 +7,9 @@ import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
 const App = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState({visible: false, photoId: 0})
   const modalDisplay = (
-    (isModalVisible && <PhotoDetailsModal setIsModalVisible={setIsModalVisible}/>)
+    (isModalVisible.visible && <PhotoDetailsModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} photo={photos.find(element => element.id === isModalVisible.photoId)}/>)
   )
 
   return (

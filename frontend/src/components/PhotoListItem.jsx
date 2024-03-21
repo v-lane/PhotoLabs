@@ -7,7 +7,10 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 const PhotoListItem = (props) => {
   const { setIsModalVisible } = props;
   const handleClick = () => {
-    setIsModalVisible(true);
+    setIsModalVisible(prev => {
+      const newObj = {...prev, visible: true, photoId: photo.id}
+      return newObj
+    });
   };
 
   const { photo } = props;

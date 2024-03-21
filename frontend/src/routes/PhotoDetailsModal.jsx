@@ -8,6 +8,8 @@ const PhotoDetailsModal = (props) => {
     props.setIsModalVisible(false)
   }
 
+  console.log('inModal. photo details', props.isModalVisible.photoId, props.photo);
+
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={handleClick}>
