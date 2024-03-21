@@ -10,6 +10,7 @@ const PhotoList = (props) => {
       photo={photo}
       isLiked={props.isLiked[photo.id]}
       setIsLiked={props.setIsLiked}
+      setIsModalVisible={props.setIsModalVisible}
     />;
   });
 

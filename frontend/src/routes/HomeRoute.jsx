@@ -11,7 +11,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} isFavPhotoExist={isFavPhotoExist}/>
-      <PhotoList photos={props.photos} isLiked={isLiked} setIsLiked={setIsLiked}/>
+      <PhotoList photos={props.photos} isLiked={isLiked} setIsLiked={setIsLiked} setIsModalVisible={props.setIsModalVisible}/>
     </div>
   );
 };
