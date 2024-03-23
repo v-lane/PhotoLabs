@@ -5,19 +5,12 @@ import PhotoFavButton from "./PhotoFavButton";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const PhotoListItem = (props) => {
-  const { setIsModalVisible, isLiked, setIsLiked } = props;
-  const handleClick = () => {
-    setIsModalVisible(prev => {
-      const newObj = { ...prev, visible: true, photoId: photo.id };
-      return newObj;
-    });
-  };
+  const {photo, isLiked, updateToFavPhotoIds, onPhotoSelect} = props;
 
-  const { photo } = props;
   return (
     <li className="photo-list__item">
-      <PhotoFavButton photoId={photo.id} isLiked={isLiked} setIsLiked={setIsLiked} />
-      <div onClick={handleClick}>
+      <PhotoFavButton photoId={photo.id} isLiked={isLiked} updateToFavPhotoIds={updateToFavPhotoIds} />
+      <div onClick={() => onPhotoSelect(photo.id)}>
         <img className="photo-list__image" src={photo.urls.full} />
         <section className="photo-list__user-details">
           <img className="photo-list__user-profile" src={photo.user.profile} />

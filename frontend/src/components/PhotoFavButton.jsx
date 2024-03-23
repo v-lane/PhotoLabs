@@ -5,24 +5,10 @@ import '../styles/PhotoFavButton.scss';
 import FavBadge from './FavBadge';
 
 function PhotoFavButton(props) {
-  const { isLiked, setIsLiked, photoId } = props;
-
-  const handleClick = () => {
-    setIsLiked(prev => {
-      const newState = { ...prev };
-      if (!newState[photoId]) {
-        newState[photoId] = true;
-        return newState;
-      }
-      if (newState[photoId] === true) {
-        newState[photoId] = false;
-        return newState;
-      }
-    });
-  };
+  const {photoId, isLiked,updateToFavPhotoIds } = props;
 
   return (
-    <div onClick={handleClick} className="photo-list__fav-icon">
+    <div onClick={() => {updateToFavPhotoIds(photoId)}} className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">
         <FavBadge isLiked={isLiked} />
       </div>

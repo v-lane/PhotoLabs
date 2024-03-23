@@ -1,34 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import HomeRoute from 'routes/HomeRoute';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+// import photos from 'mocks/photos';
+// import topics from 'mocks/topics';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
   const {
-    state,
-    setIsLiked,
-    setFavPhoto,
-    setIsModalVisible
-  } = useApplicationData()
+    favs,
+    photos, 
+    topics,
+    selectedPhoto,
+    displayPhotoDetails,
+    updateToFavPhotoIds,
+    onPhotoSelect,
+    onClosePhotoDetailsModal
+  } = useApplicationData();
 
-
-  // const [isModalVisible, setIsModalVisible] = useState({visible: false, photoId: 0})
-  // const [isLiked, setIsLiked] = useState({})
-  const isFavPhotoExist = (Object.values(state.isLiked).some(element => element === true))
+  const isFavPhotoExist = (favs.length > 0);
   const modalDisplay = (
-    (state.isModalVisible.visible && <PhotoDetailsModal isModalVisible={state.isModalVisible} setIsModalVisible={setIsModalVisible}  isLiked={state.isLiked} setIsLiked={setIsLiked} isFavPhotoExist={isFavPhotoExist} photo={photos.find(element => element.id === state.isModalVisible.photoId)}/>)
-  )
-
-
+    (!!selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} displayPhotoDetails={displayPhotoDetails} selectedPhoto={selectedPhoto} onPhotoSelect={onPhotoSelect}/>)
+  );
 
   return (
     <div className="App">
       {modalDisplay}
-      <HomeRoute photos={photos} topics={topics}  isLiked={state.isLiked} setIsLiked={setIsLiked} isFavPhotoExist={isFavPhotoExist} setIsModalVisible={setIsModalVisible}/>
+      <HomeRoute photos={photos} topics={topics} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} onPhotoSelect={onPhotoSelect} />
     </div>
   );
 };
