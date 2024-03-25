@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import './App.scss';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import HomeRoute from 'routes/HomeRoute';
-// import photos from 'mocks/photos';
-// import topics from 'mocks/topics';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {

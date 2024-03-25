@@ -5,6 +5,7 @@ function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, {
     photos: [], // array of objects (photo data)
     topics: [], // array of objects (topics data)
+    topicId: "", //current topicId of photos shown
     favs: [],  // array of strings(photo ids)
     selectedPhoto: "", // string of single photo id (for modal)
     displayPhotoDetails: {} // object of single photo details (for modal)
@@ -22,15 +23,18 @@ function useApplicationData() {
       .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
   }, []);
 
-  function getPhotosByTopic(topicId) {
-    console.log(`topicId is ${topicId}`)
-    fetch(`/api/topics/photos/${topicId}`)
-    .then(res => res.json())
-    .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data}))
+  function setTopicId(topicId) {
+    dispatch({ type: ACTIONS.SET_TOPIC_ID, payload: topicId})
   }
 
-  // case 'GET_PHOTOS_BY_TOPICS':
-  //   return { ...state, photos: action.payload };
+  function getPhotosByTopic(topicId) {
+    if (topicId !== state.topicId) {
+      setTopicId(topicId);
+      fetch(`/api/topics/photos/${topicId}`)
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data}))
+    }
+  }
 
   function addPhotoToFavs(photoId) {
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId });
