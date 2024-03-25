@@ -1,7 +1,5 @@
 import { useState, useReducer, useEffect } from 'react';
 import reducer, { ACTIONS } from "reducers/photoLabsReducer";
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
 
 function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, {
@@ -13,11 +11,15 @@ function useApplicationData() {
   });
 
   useEffect(() => {
-    dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photos });
+    fetch(`/api/photos`)
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
   }, []);
 
   useEffect(() => {
-    dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topics });
+    fetch(`/api/topics`)
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
   }, []);
 
   function addPhotoToFavs(photoId) {
