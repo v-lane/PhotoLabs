@@ -24,15 +24,15 @@ function useApplicationData() {
   }, []);
 
   function setTopicId(topicId) {
-    dispatch({ type: ACTIONS.SET_TOPIC_ID, payload: topicId})
+    dispatch({ type: ACTIONS.SET_TOPIC_ID, payload: topicId });
   }
 
   function getPhotosByTopic(topicId) {
     if (topicId !== state.topicId) {
       setTopicId(topicId);
       fetch(`/api/topics/photos/${topicId}`)
-      .then(res => res.json())
-      .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data}))
+        .then(res => res.json())
+        .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }));
     }
   }
 

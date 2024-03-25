@@ -7,9 +7,9 @@ import PhotoListItem from 'components/PhotoListItem';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  const { onClosePhotoDetailsModal, favs, updateToFavPhotoIds, displayPhotoDetails, selectedPhoto, onPhotoSelect} = props;
+  const { onClosePhotoDetailsModal, favs, updateToFavPhotoIds, displayPhotoDetails, selectedPhoto, onPhotoSelect } = props;
 
-  const similarPhotosArr = Object.values(displayPhotoDetails.similar_photos)
+  const similarPhotosArr = Object.values(displayPhotoDetails.similar_photos);
 
   return (
     <div className="photo-details-modal">
@@ -21,17 +21,17 @@ const PhotoDetailsModal = (props) => {
       </div>
       <section className="photo-details-modal__top-bar">
         <img className="photo-details-modal__image" src={displayPhotoDetails.urls.regular} />
-        </section>
-        <section className="photo-details-modal__photographer-details">
-          <img className="photo-details-modal__photographer-profile" src={displayPhotoDetails.user.profile} />
-          <div>
-            <h2 className="photo-details-modal__photographer-info">{displayPhotoDetails.user.name}</h2>
-            <h2 className="photo-details-modal__photographer-location">{displayPhotoDetails.location.city}, {displayPhotoDetails.location.country}</h2>
-          </div>
+      </section>
+      <section className="photo-details-modal__photographer-details">
+        <img className="photo-details-modal__photographer-profile" src={displayPhotoDetails.user.profile} />
+        <div>
+          <h2 className="photo-details-modal__photographer-info">{displayPhotoDetails.user.name}</h2>
+          <h2 className="photo-details-modal__photographer-location">{displayPhotoDetails.location.city}, {displayPhotoDetails.location.country}</h2>
+        </div>
       </section>
       <h2 className="photo-details-modal__header"> Similar Photos</h2>
       <section className="photo-details-modal__images">
-        <PhotoList photos={similarPhotosArr} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} selectedPhoto={selectedPhoto}/>
+        <PhotoList photos={similarPhotosArr} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} selectedPhoto={selectedPhoto} />
       </section>
     </div >
   );

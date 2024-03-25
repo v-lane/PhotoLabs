@@ -8,7 +8,7 @@ import useApplicationData from 'hooks/useApplicationData';
 const App = () => {
   const {
     favs,
-    photos, 
+    photos,
     topics,
     selectedPhoto,
     displayPhotoDetails,
@@ -20,13 +20,13 @@ const App = () => {
 
   const isFavPhotoExist = (favs.length > 0);
   const modalDisplay = (
-    (!!selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} displayPhotoDetails={displayPhotoDetails} selectedPhoto={selectedPhoto} onPhotoSelect={onPhotoSelect}/>)
+    (!!selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} displayPhotoDetails={displayPhotoDetails} selectedPhoto={selectedPhoto} onPhotoSelect={onPhotoSelect} />)
   );
 
   return (
     <div className="App">
       {modalDisplay}
-      <HomeRoute photos={photos} topics={topics} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} onPhotoSelect={onPhotoSelect} getPhotosByTopic={getPhotosByTopic}/>
+      <HomeRoute photos={photos} topics={topics} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} onPhotoSelect={onPhotoSelect} getPhotosByTopic={getPhotosByTopic} />
     </div>
   );
 };

@@ -2,10 +2,9 @@ import React from "react";
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
-import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const PhotoListItem = (props) => {
-  const {photo, isLiked, updateToFavPhotoIds, onPhotoSelect} = props;
+  const { photo, isLiked, updateToFavPhotoIds, onPhotoSelect } = props;
 
   return (
     <li className="photo-list__item">
