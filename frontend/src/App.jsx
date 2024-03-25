@@ -16,7 +16,8 @@ const App = () => {
     displayPhotoDetails,
     updateToFavPhotoIds,
     onPhotoSelect,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    getPhotosByTopic
   } = useApplicationData();
 
   const isFavPhotoExist = (favs.length > 0);
@@ -27,7 +28,7 @@ const App = () => {
   return (
     <div className="App">
       {modalDisplay}
-      <HomeRoute photos={photos} topics={topics} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} onPhotoSelect={onPhotoSelect} />
+      <HomeRoute photos={photos} topics={topics} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} onPhotoSelect={onPhotoSelect} getPhotosByTopic={getPhotosByTopic}/>
     </div>
   );
 };

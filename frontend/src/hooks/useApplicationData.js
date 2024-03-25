@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 import reducer, { ACTIONS } from "reducers/photoLabsReducer";
 
 function useApplicationData() {
@@ -21,6 +21,16 @@ function useApplicationData() {
       .then(res => res.json())
       .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
   }, []);
+
+  function getPhotosByTopic(topicId) {
+    console.log(`topicId is ${topicId}`)
+    fetch(`/api/topics/photos/${topicId}`)
+    .then(res => res.json())
+    .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data}))
+  }
+
+  // case 'GET_PHOTOS_BY_TOPICS':
+  //   return { ...state, photos: action.payload };
 
   function addPhotoToFavs(photoId) {
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId });
@@ -55,7 +65,8 @@ function useApplicationData() {
     displayPhotoDetails: state.displayPhotoDetails,
     updateToFavPhotoIds,
     onPhotoSelect,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    getPhotosByTopic
   };
 }
 

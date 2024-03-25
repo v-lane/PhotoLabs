@@ -5,12 +5,14 @@ import TopicListItem from "./TopicListItem";
 
 
 const TopicList = (props) => {
-  const { topics } = props;
+  const { topics, getPhotosByTopic } = props;
 
   const topicsDetails = topics.map(topic => {
     return < TopicListItem
       key={topic.id}
+      topicId={topic.id}
       title={topic.title}
+      getPhotosByTopic={getPhotosByTopic}
     />;
   });
 
