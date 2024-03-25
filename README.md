@@ -28,3 +28,7 @@ npm start
 - Express 4.x or above
 
 ## Screenshots
+
+!['Main View'](https://github.com/v-lane/PhotoLabs/blob/main/docs/homeView.png?raw=true)
+
+!['Modal View'](https://github.com/v-lane/PhotoLabs/blob/main/docs/modalView.png?raw=true)
