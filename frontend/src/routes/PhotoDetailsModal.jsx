@@ -7,7 +7,7 @@ import PhotoListItem from 'components/PhotoListItem';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  const { onClosePhotoDetailsModal, favs, updateToFavPhotoIds, displayPhotoDetails, selectedPhoto, onPhotoSelect } = props;
+  const { onClosePhotoDetailsModal, favs, updateToFavPhotoIds, displayPhotoDetails, selectedPhoto, onPhotoSelect, colorClass } = props;
 
   const similarPhotosArr = Object.values(displayPhotoDetails.similar_photos);
 

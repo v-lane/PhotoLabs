@@ -5,7 +5,7 @@ import TopicListItem from "./TopicListItem";
 
 
 const TopicList = (props) => {
-  const { topics, getPhotosByTopic } = props;
+  const { topics, getPhotosByTopic, colorClass } = props;
 
   const topicsDetails = topics.map(topic => {
     return < TopicListItem
@@ -13,6 +13,7 @@ const TopicList = (props) => {
       topicId={topic.id}
       title={topic.title}
       getPhotosByTopic={getPhotosByTopic}
+      colorClass={colorClass}
     />;
   });
 

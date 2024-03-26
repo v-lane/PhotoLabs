@@ -12,21 +12,27 @@ const App = () => {
     topics,
     selectedPhoto,
     displayPhotoDetails,
+    colorMode,
     updateToFavPhotoIds,
     onPhotoSelect,
     onClosePhotoDetailsModal,
-    getPhotosByTopic
+    getPhotosByTopic,
+    toggleDarkMode
   } = useApplicationData();
 
   const isFavPhotoExist = (favs.length > 0);
   const modalDisplay = (
-    (!!selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} displayPhotoDetails={displayPhotoDetails} selectedPhoto={selectedPhoto} onPhotoSelect={onPhotoSelect} />)
+    (!!selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} displayPhotoDetails={displayPhotoDetails} selectedPhoto={selectedPhoto} onPhotoSelect={onPhotoSelect} colorClass={colorClass}/>)
   );
 
+  const colorClass = (
+    colorMode === "Light" ? "" : " dark"
+  )
+
   return (
-    <div className="App">
+    <div className={"App" + colorClass} >
       {modalDisplay}
-      <HomeRoute photos={photos} topics={topics} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} onPhotoSelect={onPhotoSelect} getPhotosByTopic={getPhotosByTopic} />
+      <HomeRoute photos={photos} topics={topics} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} onPhotoSelect={onPhotoSelect} getPhotosByTopic={getPhotosByTopic} toggleDarkMode={toggleDarkMode} colorMode={colorMode} colorClass={colorClass}/>
     </div>
   );
 };

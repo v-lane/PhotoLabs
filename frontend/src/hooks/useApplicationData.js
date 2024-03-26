@@ -8,7 +8,8 @@ function useApplicationData() {
     topicId: "", //current topicId of photos shown
     favs: [],  // array of strings(photo ids)
     selectedPhoto: "", // string of single photo id (for modal)
-    displayPhotoDetails: {} // object of single photo details (for modal)
+    displayPhotoDetails: {}, // object of single photo details (for modal)
+    colorMode: 'Light' // string with 'Dark' or 'Light'
   });
 
   useEffect(() => {
@@ -61,16 +62,22 @@ function useApplicationData() {
     onPhotoSelect(''); // replace with empty string
   }
 
+  function toggleDarkMode() {
+    state.colorMode === 'Light' ? dispatch({ type: ACTIONS.SET_DARK_MODE, payload: 'Dark' }) : dispatch({ type: ACTIONS.SET_DARK_MODE, payload: 'Light' });
+  }
+
   return {
     photos: state.photos,
     topics: state.topics,
     favs: state.favs,
     selectedPhoto: state.selectedPhoto,
     displayPhotoDetails: state.displayPhotoDetails,
+    colorMode: state.colorMode,
     updateToFavPhotoIds,
     onPhotoSelect,
     onClosePhotoDetailsModal,
-    getPhotosByTopic
+    getPhotosByTopic,
+    toggleDarkMode
   };
 }
 

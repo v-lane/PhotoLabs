@@ -8,7 +8,8 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
-  SET_TOPIC_ID: 'SET_TOPIC_ID'
+  SET_TOPIC_ID: 'SET_TOPIC_ID',
+  SET_DARK_MODE: 'SET_DARK_MODE'
 };
 
 export default function reducer(state, action) {
@@ -23,6 +24,8 @@ export default function reducer(state, action) {
       if (index > -1) newState.favs.splice(index, 1);
       return newState;
     }
+    case 'SET_DARK_MODE': 
+      return { ...state, colorMode: action.payload}
     case 'SET_TOPIC_DATA':
       return { ...state, topics: action.payload };
     case 'SET_TOPIC_ID':
