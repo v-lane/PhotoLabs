@@ -20,14 +20,14 @@ const App = () => {
     toggleDarkMode
   } = useApplicationData();
 
+  const colorClass = (
+    colorMode === "Light" ? "" : " dark"
+  )
   const isFavPhotoExist = (favs.length > 0);
   const modalDisplay = (
     (!!selectedPhoto && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} favs={favs} updateToFavPhotoIds={updateToFavPhotoIds} isFavPhotoExist={isFavPhotoExist} displayPhotoDetails={displayPhotoDetails} selectedPhoto={selectedPhoto} onPhotoSelect={onPhotoSelect} colorClass={colorClass}/>)
   );
 
-  const colorClass = (
-    colorMode === "Light" ? "" : " dark"
-  )
 
   return (
     <div className={"App" + colorClass} >

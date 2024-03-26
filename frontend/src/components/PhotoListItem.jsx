@@ -7,7 +7,7 @@ const PhotoListItem = (props) => {
   const { photo, isLiked, updateToFavPhotoIds, onPhotoSelect, colorClass } = props;
 
   return (
-    <li className="photo-list__item">
+    <li className={"photo-list__item" + colorClass}>
       <PhotoFavButton photoId={photo.id} isLiked={isLiked} updateToFavPhotoIds={updateToFavPhotoIds} colorClass={colorClass}/>
       <div onClick={() => onPhotoSelect(photo.id)}>
         <img className="photo-list__image" src={photo.urls.full} />

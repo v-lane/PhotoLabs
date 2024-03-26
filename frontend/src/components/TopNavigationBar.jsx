@@ -8,7 +8,7 @@ const TopNavigation = (props) => {
   const { topics, isFavPhotoExist, getPhotosByTopic, toggleDarkMode, colorMode, colorClass } = props;
 
   return (
-    <div className="top-nav-bar">
+    <div className={"top-nav-bar" + colorClass}>
       <span className={"top-nav-bar__logo" + colorClass} >PhotoLabs</span>
       <TopicList topics={topics} getPhotosByTopic={getPhotosByTopic} colorClass={colorClass}/>
       <FavBadge isFavPhotoExist={isFavPhotoExist} isLiked={isFavPhotoExist} colorClass={colorClass}/>

@@ -7,6 +7,14 @@
   border-radius: 8px;
   max-width: fit-content;
   background-color: #ffffff;
+
+}
+
+.photo-list__item.dark {
+  background-color: rgba(18, 18, 18, 0.8);  
+  border-color: rgba(230, 230, 230, 0.4);
+  color: #e6e6e6;
+
 }
 
 .photo-list__image {
